@@ -38,6 +38,10 @@ import { SidebarComponent } from './layout/sidebar.component';
 import { SidebarLogoComponent } from './layout/sidebar-logo.component';
 import { SidebarUserPanelComponent } from './layout/sidebar-user-panel.component';
 import { SidebarMenuComponent } from './layout/sidebar-menu.component';
+// drones
+import { MedicationsComponent } from './medications/medications.component';
+import { CreateMedicationComponent } from './medications/create-medication/create-medication.component';
+import { EditMedicationComponent } from './medications/edit-medication/edit-medication.component';
 
 @NgModule({
     declarations: [
@@ -67,7 +71,11 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
         SidebarComponent,
         SidebarLogoComponent,
         SidebarUserPanelComponent,
-        SidebarMenuComponent
+        SidebarMenuComponent,
+        // drones
+        MedicationsComponent,
+        CreateMedicationComponent,
+        EditMedicationComponent
     ],
     imports: [
         CommonModule,
@@ -86,4 +94,4 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
     ],
     providers: []
 })
-export class AppModule {}
+export class AppModule { }

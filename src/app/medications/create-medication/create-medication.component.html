@@ -1,0 +1,41 @@
+<form class="form-horizontal" autocomplete="off" #createMedicationForm="ngForm" (ngSubmit)="save()">
+  <abp-modal-header [title]="'CreateNewMedication' | localize" (onCloseClick)="bsModalRef.hide()"></abp-modal-header>
+  <div class="modal-body">
+    <tabset>
+      <tab [heading]="'Fields' | localize" class="pt-3 px-2">
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="name">
+            {{ "Name" | localize }}
+          </label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" name="name" id="name" required minlength="2" maxlength="255"
+              [(ngModel)]="medication.name" #nameModel="ngModel" #nameEl pattern="^[a-zA-Z0-9\-_]+$" />
+            <abp-validation-summary [control]="nameModel" [controlEl]="nameEl"></abp-validation-summary>
+          </div>
+        </div>
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="weight">
+            {{ "Weight" | localize }}
+          </label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" name="weight" id="weight" required [(ngModel)]="medication.weight"
+              #weightModel="ngModel" #weightEl pattern="^\d+(?:[.]\d+)?$" />
+            <abp-validation-summary [control]="weightModel" [controlEl]="weightEl"></abp-validation-summary>
+          </div>
+        </div>
+        <div class="form-group row required">
+          <label class="col-md-3 col-form-label" for="code">
+            {{ "Code" | localize }}
+          </label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" name="code" id="code" required minlength="2" maxlength="255"
+              [(ngModel)]="medication.code" #codeModel="ngModel" #codeEl pattern="^[A-Z0-9_]+$" />
+            <abp-validation-summary [control]="codeModel" [controlEl]="codeEl"></abp-validation-summary>
+          </div>
+        </div>
+      </tab>
+    </tabset>
+  </div>
+  <abp-modal-footer [cancelDisabled]="saving" [saveDisabled]="!createMedicationForm.form.valid || saving"
+    (onCancelClick)="bsModalRef.hide()"></abp-modal-footer>
+</form>
