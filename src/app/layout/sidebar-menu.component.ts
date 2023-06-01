@@ -74,6 +74,12 @@ export class SidebarMenuComponent extends AppComponentBase implements OnInit {
                 "fas fa-pills",
                 "Pages.Users"
             ),
+            new MenuItem(
+                this.l("Load"),
+                "/app/load",
+                "fas fa-plus-circle",
+                "Pages.Users"
+            ),
         ];
     }
 

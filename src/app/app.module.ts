@@ -45,6 +45,8 @@ import { EditMedicationComponent } from './medications/edit-medication/edit-medi
 import { DronesComponent } from './drones/drones.component';
 import { CreateDroneComponent } from './drones/create-drone/create-drone.component';
 import { EditDroneComponent } from './drones/edit-drone/edit-drone.component';
+import { LoadComponent } from './load/load.component';
+import { LoadDroneComponent } from './load/load-drone/load-drone.component';
 
 @NgModule({
     declarations: [
@@ -81,7 +83,9 @@ import { EditDroneComponent } from './drones/edit-drone/edit-drone.component';
         EditMedicationComponent,
         DronesComponent,
         CreateDroneComponent,
-        EditDroneComponent
+        EditDroneComponent,
+        LoadComponent,
+        LoadDroneComponent
     ],
     imports: [
         CommonModule,
