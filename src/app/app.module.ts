@@ -42,6 +42,9 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
 import { MedicationsComponent } from './medications/medications.component';
 import { CreateMedicationComponent } from './medications/create-medication/create-medication.component';
 import { EditMedicationComponent } from './medications/edit-medication/edit-medication.component';
+import { DronesComponent } from './drones/drones.component';
+import { CreateDroneComponent } from './drones/create-drone/create-drone.component';
+import { EditDroneComponent } from './drones/edit-drone/edit-drone.component';
 
 @NgModule({
     declarations: [
@@ -75,7 +78,10 @@ import { EditMedicationComponent } from './medications/edit-medication/edit-medi
         // drones
         MedicationsComponent,
         CreateMedicationComponent,
-        EditMedicationComponent
+        EditMedicationComponent,
+        DronesComponent,
+        CreateDroneComponent,
+        EditDroneComponent
     ],
     imports: [
         CommonModule,

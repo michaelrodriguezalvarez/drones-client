@@ -18,7 +18,7 @@
             {{ "Weight" | localize }}
           </label>
           <div class="col-md-9">
-            <input type="text" class="form-control" name="weight" id="weight" required [(ngModel)]="medication.weight"
+            <input type="number" class="form-control" name="weight" id="weight" required [(ngModel)]="medication.weight"
               #weightModel="ngModel" #weightEl pattern="^\d+(?:[.]\d+)?$" />
             <abp-validation-summary [control]="weightModel" [controlEl]="weightEl"></abp-validation-summary>
           </div>
