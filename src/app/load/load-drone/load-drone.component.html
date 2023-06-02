@@ -5,6 +5,13 @@
     <tabset>
       <tab [heading]="'Medications' | localize" class="pt-3 px-2">
         <div class="form-group row">
+          <div class="col-12">
+            <div class="alert alert-info" role="alert">
+              {{ "DroneLoadedWeight" | localize : droneLoadedWeight }}
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
           <label class="col-md-3 col-form-label" for="medicationsSelected">
             {{ "SelectToLoad" | localize }}
           </label>

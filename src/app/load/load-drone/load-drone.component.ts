@@ -15,7 +15,8 @@ import {
   CheckDronesRequestDto,
   MedicationDtoPagedResultDto,
   MedicationServiceProxy,
-  LoadDronesRequestDto
+  LoadDronesRequestDto,
+  CheckLoadedWeightDroneDto
 } from '@shared/service-proxies/service-proxies';
 import { finalize } from 'rxjs';
 
@@ -29,6 +30,7 @@ export class LoadDroneComponent extends AppComponentBase
   drone = new DroneDto();
   medicationsSelected: number[] = [];
   medications: MedicationDto[] = [];
+  droneLoadedWeight: number = 0;
 
   @Output() onSave = new EventEmitter<any>();
 
@@ -42,6 +44,15 @@ export class LoadDroneComponent extends AppComponentBase
   }
 
   ngOnInit(): void {
+
+    let checkLoadedWeightDroneDto: CheckLoadedWeightDroneDto = new CheckLoadedWeightDroneDto();
+    checkLoadedWeightDroneDto.droneId = this.id;
+    this._droneService
+      .checkLoadedWeight(checkLoadedWeightDroneDto)
+      .subscribe((result: number) => {
+        this.droneLoadedWeight = result;
+      });
+
     this._droneService
       .get(this.id)
       .subscribe((result: DroneDto) => {
