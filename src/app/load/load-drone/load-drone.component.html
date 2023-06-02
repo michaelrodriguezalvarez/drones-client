@@ -11,7 +11,10 @@
           <div class="col-md-9">
             <select class="form-control" name="medicationsSelected" id="medicationsSelected"
               [(ngModel)]="medicationsSelected" #medicationsSelectedModel="ngModel" #medicationsSelectedEl multiple>
-              <option *ngFor="let medication of medications" [ngValue]="medication.id">{{medication.name}}</option>
+              <option *ngFor="let medication of medications" [ngValue]="medication.id">
+                {{medication.name}}
+                ({{medication.weight}})
+              </option>
             </select>
             <abp-validation-summary [control]="medicationsSelectedModel"
               [controlEl]="medicationsSelectedEl"></abp-validation-summary>

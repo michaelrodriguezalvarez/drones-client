@@ -9,7 +9,8 @@ import {
 import {
   DroneServiceProxy,
   DroneDto,
-  DroneDtoPagedResultDto
+  DroneDtoPagedResultDto,
+  CheckAvailablesRequestDto
 } from '@shared/service-proxies/service-proxies';
 import { CreateDroneComponent } from './create-drone/create-drone.component';
 import { EditDroneComponent } from './edit-drone/edit-drone.component';
@@ -25,6 +26,8 @@ class PagedDroneRequestDto extends PagedRequestDto {
 export class DronesComponent extends PagedListingComponentBase<DroneDto> {
   drones: DroneDto[] = [];
   keyword = '';
+  advancedFiltersVisible = true;
+  availablesDrone = false;
 
   constructor(
     injector: Injector,
@@ -41,17 +44,38 @@ export class DronesComponent extends PagedListingComponentBase<DroneDto> {
   ): void {
     request.keyword = this.keyword;
 
-    this._droneService
-      .getAll(request.keyword, '', true, request.skipCount, request.maxResultCount)
-      .pipe(
-        finalize(() => {
-          finishedCallback();
-        })
-      )
-      .subscribe((result: DroneDtoPagedResultDto) => {
-        this.drones = result.items;
-        this.showPaging(result, pageNumber);
-      });
+    if (this.availablesDrone) {
+      let checkAvailablesRequestDto: CheckAvailablesRequestDto = new CheckAvailablesRequestDto();
+      checkAvailablesRequestDto.keyword = request.keyword;
+      checkAvailablesRequestDto.sorting = '';
+      checkAvailablesRequestDto.descending = true;
+      checkAvailablesRequestDto.skipCount = request.skipCount;
+      checkAvailablesRequestDto.maxResultCount = request.maxResultCount;
+      this._droneService
+        .checkAvailables(checkAvailablesRequestDto)
+        .pipe(
+          finalize(() => {
+            finishedCallback();
+          })
+        )
+        .subscribe((result: DroneDtoPagedResultDto) => {
+          this.drones = result.items;
+          this.showPaging(result, pageNumber);
+        });
+    }
+    else {
+      this._droneService
+        .getAll(request.keyword, '', true, request.skipCount, request.maxResultCount)
+        .pipe(
+          finalize(() => {
+            finishedCallback();
+          })
+        )
+        .subscribe((result: DroneDtoPagedResultDto) => {
+          this.drones = result.items;
+          this.showPaging(result, pageNumber);
+        });
+    }
   }
 
   delete(drone: DroneDto): void {

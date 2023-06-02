@@ -29,7 +29,36 @@
                 </div>
                 <input type="text" class="form-control" name="keyword" [placeholder]="'SearchWithThreeDot' | localize"
                   [(ngModel)]="keyword" (keyup.enter)="getDataPage(1)" />
+                <div class="input-group-append">
+                  <button type="button" class="btn btn-default"
+                    (click)="advancedFiltersVisible = !advancedFiltersVisible">
+                    <i class="fas" [class.fa-angle-up]="advancedFiltersVisible"
+                      [class.fa-angle-down]="!advancedFiltersVisible"></i>
+                  </button>
+                </div>
               </div>
+            </div>
+          </div>
+          <div *ngIf="advancedFiltersVisible" class="card mb-0 mt-1">
+            <div class="card-body">
+              <form class="form-horizontal">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row mb-0">
+                      <label class="col-md-3 col-form-label">
+                        {{ "AvailablesDrone" | localize }}
+                      </label>
+                      <div class="col-md-9 pt-2">
+                        <div class="d-inline">
+                          <input type="checkbox" name="availablesDrone" id="availablesDrone"
+                            [(ngModel)]="availablesDrone" #availablesDroneModel="ngModel" #availablesDroneEl
+                            (change)="getDataPage(1)">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>

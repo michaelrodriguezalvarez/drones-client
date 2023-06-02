@@ -387,16 +387,21 @@ export class DroneServiceProxy {
     }
 
     /**
+     * @param body (optional) 
      * @return Success
      */
-    checkAvailables(): Observable<DroneDtoPagedResultDto> {
+    checkAvailables(body: CheckAvailablesRequestDto | undefined): Observable<DroneDtoPagedResultDto> {
         let url_ = this.baseUrl + "/api/services/app/Drone/CheckAvailables";
         url_ = url_.replace(/[?&]$/, "");
 
+        const content_ = JSON.stringify(body);
+
         let options_ : any = {
+            body: content_,
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
+                "Content-Type": "application/json-patch+json",
                 "Accept": "text/plain"
             })
         };
@@ -3033,6 +3038,65 @@ export class ChangeUserLanguageDto implements IChangeUserLanguageDto {
 
 export interface IChangeUserLanguageDto {
     languageName: string;
+}
+
+export class CheckAvailablesRequestDto implements ICheckAvailablesRequestDto {
+    maxResultCount: number;
+    skipCount: number;
+    keyword: string | undefined;
+    sorting: string | undefined;
+    descending: boolean;
+
+    constructor(data?: ICheckAvailablesRequestDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.maxResultCount = _data["maxResultCount"];
+            this.skipCount = _data["skipCount"];
+            this.keyword = _data["keyword"];
+            this.sorting = _data["sorting"];
+            this.descending = _data["descending"];
+        }
+    }
+
+    static fromJS(data: any): CheckAvailablesRequestDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new CheckAvailablesRequestDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["maxResultCount"] = this.maxResultCount;
+        data["skipCount"] = this.skipCount;
+        data["keyword"] = this.keyword;
+        data["sorting"] = this.sorting;
+        data["descending"] = this.descending;
+        return data;
+    }
+
+    clone(): CheckAvailablesRequestDto {
+        const json = this.toJSON();
+        let result = new CheckAvailablesRequestDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface ICheckAvailablesRequestDto {
+    maxResultCount: number;
+    skipCount: number;
+    keyword: string | undefined;
+    sorting: string | undefined;
+    descending: boolean;
 }
 
 export class CheckDronesRequestDto implements ICheckDronesRequestDto {
