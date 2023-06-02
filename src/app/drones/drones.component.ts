@@ -14,6 +14,7 @@ import {
 } from '@shared/service-proxies/service-proxies';
 import { CreateDroneComponent } from './create-drone/create-drone.component';
 import { EditDroneComponent } from './edit-drone/edit-drone.component';
+import { BatteryLevelComponent } from './battery-level/battery-level.component';
 
 class PagedDroneRequestDto extends PagedRequestDto {
   keyword: string;
@@ -130,6 +131,24 @@ export class DronesComponent extends PagedListingComponentBase<DroneDto> {
     createOrEditDroneDialog.content.onSave.subscribe(() => {
       this.refresh();
     });
+  }
+
+  checkBatteryLevelDrone(drone: DroneDto): void {
+    this.showCheckBatteryLevelDroneDialog(drone.id);
+  }
+
+  showCheckBatteryLevelDroneDialog(id?: number): void {
+    let checkBatteryLevelDroneDialog: BsModalRef;
+
+    checkBatteryLevelDroneDialog = this._modalService.show(
+      BatteryLevelComponent,
+      {
+        class: 'modal-lg',
+        initialState: {
+          id: id,
+        },
+      }
+    );
   }
 }
 

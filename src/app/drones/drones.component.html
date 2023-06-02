@@ -70,9 +70,8 @@
                   <th>{{ "SerialNumber" | localize }}</th>
                   <th>{{ "Model" | localize }}</th>
                   <th>{{ "Weight" | localize }}</th>
-                  <th>{{ "BatteryCapacity" | localize }}</th>
                   <th>{{ "State" | localize }}</th>
-                  <th style="width: 200px;">{{ "Actions" | localize }}</th>
+                  <th style="width: 255px;">{{ "Actions" | localize }}</th>
                 </tr>
               </thead>
               <tbody>
@@ -89,10 +88,13 @@
                   <td>{{ drone.serialNumber }}</td>
                   <td>{{ drone.model }}</td>
                   <td>{{ drone.weight }}</td>
-                  <td>{{ drone.batteryCapacity }}%</td>
                   <td>{{ drone.state }}</td>
                   <td>
-                    <button type="button" class="btn btn-sm bg-secondary" (click)="editDrone(drone)">
+                    <button type="button" class="btn btn-sm bg-warning" (click)="checkBatteryLevelDrone(drone)">
+                      <i class="fas fa-bolt"></i>
+                      {{ "Battery" | localize }}
+                    </button>
+                    <button type="button" class="btn btn-sm bg-secondary ml-2" (click)="editDrone(drone)">
                       <i class="fas fa-pencil-alt"></i>
                       {{ "Edit" | localize }}
                     </button>

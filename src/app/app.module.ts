@@ -47,6 +47,7 @@ import { CreateDroneComponent } from './drones/create-drone/create-drone.compone
 import { EditDroneComponent } from './drones/edit-drone/edit-drone.component';
 import { LoadComponent } from './load/load.component';
 import { LoadDroneComponent } from './load/load-drone/load-drone.component';
+import { BatteryLevelComponent } from './drones/battery-level/battery-level.component';
 
 @NgModule({
     declarations: [
@@ -85,7 +86,8 @@ import { LoadDroneComponent } from './load/load-drone/load-drone.component';
         CreateDroneComponent,
         EditDroneComponent,
         LoadComponent,
-        LoadDroneComponent
+        LoadDroneComponent,
+        BatteryLevelComponent
     ],
     imports: [
         CommonModule,
