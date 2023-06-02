@@ -27,3 +27,11 @@ Run `npm install --legacy-peer-deps`
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+
+## Login
+
+Set current tenant: `Not selected`
+
+Set user: `admin`
+
+Set password: `123qwe`
