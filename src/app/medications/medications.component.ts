@@ -13,6 +13,7 @@ import {
 } from '@shared/service-proxies/service-proxies';
 import { CreateMedicationComponent } from './create-medication/create-medication.component';
 import { EditMedicationComponent } from './edit-medication/edit-medication.component';
+import { ImageMedicationComponent } from './image-medication/image-medication.component';
 
 class PagedMedicationRequestDto extends PagedRequestDto {
   keyword: string;
@@ -104,6 +105,26 @@ export class MedicationsComponent extends PagedListingComponentBase<MedicationDt
     }
 
     createOrEditMedicationDialog.content.onSave.subscribe(() => {
+      this.refresh();
+    });
+  }
+
+  editImageMedication(medication: MedicationDto): void {
+    this.showEditImageMedicationDialog(medication.id);
+  }
+
+  showEditImageMedicationDialog(id?: number): void {
+    let editImageMedicationDialogDialog: BsModalRef;
+    editImageMedicationDialogDialog = this._modalService.show(
+      ImageMedicationComponent,
+      {
+        class: 'modal-lg',
+        initialState: {
+          id: id,
+        },
+      }
+    );
+    editImageMedicationDialogDialog.content.onSave.subscribe(() => {
       this.refresh();
     });
   }

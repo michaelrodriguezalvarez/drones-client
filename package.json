@@ -32,6 +32,7 @@
     "moment": "2.29.4",
     "moment-timezone": "0.5.40",
     "ngx-bootstrap": "^9.0.0",
+    "ngx-image-cropper": "^6.3.4",
     "ngx-pagination": "^6.0.3",
     "push.js": "1.0.12",
     "rxjs": "^7.6.0",
