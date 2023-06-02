@@ -1,0 +1,17 @@
+<form class="form-horizontal" autocomplete="off" #editImageMedicationForm="ngForm" (ngSubmit)="save()">
+  <abp-modal-header [title]="'EditImage' | localize" (onCloseClick)="bsModalRef.hide()"></abp-modal-header>
+  <div class="modal-body">
+    <tabset>
+      <tab [heading]="'ImageOfMedication' | localize : medication.name" class="pt-3 px-2">
+        <input type="file" (change)="fileChangeEvent($event)" />
+
+        <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4 / 3"
+          format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+          (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+        <img [src]="croppedImage" />
+      </tab>
+    </tabset>
+  </div>
+  <abp-modal-footer [cancelDisabled]="saving" [saveDisabled]="!editImageMedicationForm.form.valid || saving"
+    (onCancelClick)="bsModalRef.hide()"></abp-modal-footer>
+</form>

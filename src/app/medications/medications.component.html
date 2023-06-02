@@ -41,7 +41,7 @@
                   <th>{{ "Name" | localize }}</th>
                   <th>{{ "Weight" | localize }}</th>
                   <th>{{ "Code" | localize }}</th>
-                  <th>{{ "Image" | localize }}</th>
+                  <th style="width: 130px;">{{ "Image" | localize }}</th>
                   <th style="width: 255px;">{{ "Actions" | localize }}</th>
                 </tr>
               </thead>
@@ -59,14 +59,21 @@
                   <td>{{ medication.name }}</td>
                   <td>{{ medication.weight }}</td>
                   <td>{{ medication.code }}</td>
-                  <td>{{ medication.image }}</td>
+                  <td *ngIf="medication.image; else hideImage">
+                    <div class="text-center">
+                      <img src="{{ medication.image }}" width="100" height="100" />
+                    </div>
+
+                  </td>
+                  <ng-template #hideImage>
+                    <td></td>
+                  </ng-template>
                   <td>
                     <button type="button" class="btn btn-sm bg-secondary" (click)="editMedication(medication)">
                       <i class="fas fa-pencil-alt"></i>
                       {{ "Edit" | localize }}
                     </button>
-                    <button type="button" disabled class="btn btn-sm bg-primary ml-2"
-                      (click)="editMedication(medication)">
+                    <button type="button" class="btn btn-sm bg-primary ml-2" (click)="editImageMedication(medication)">
                       <i class="fas fa-images"></i>
                       {{ "Image" | localize }}
                     </button>

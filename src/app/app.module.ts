@@ -49,6 +49,8 @@ import { LoadComponent } from './load/load.component';
 import { LoadDroneComponent } from './load/load-drone/load-drone.component';
 import { BatteryLevelComponent } from './drones/battery-level/battery-level.component';
 import { JobsComponent } from './jobs/jobs.component';
+import { ImageMedicationComponent } from './medications/image-medication/image-medication.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
     declarations: [
@@ -89,7 +91,8 @@ import { JobsComponent } from './jobs/jobs.component';
         LoadComponent,
         LoadDroneComponent,
         BatteryLevelComponent,
-        JobsComponent
+        JobsComponent,
+        ImageMedicationComponent
     ],
     imports: [
         CommonModule,
@@ -105,6 +108,7 @@ import { JobsComponent } from './jobs/jobs.component';
         ServiceProxyModule,
         SharedModule,
         NgxPaginationModule,
+        ImageCropperModule
     ],
     providers: []
 })
