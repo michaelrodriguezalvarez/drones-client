@@ -1,0 +1,35 @@
+<form class="form-horizontal" autocomplete="off" #loadDroneForm="ngForm" (ngSubmit)="save()">
+  <abp-modal-header [title]="'LoadToDrone' | localize : drone.serialNumber" (onCloseClick)="bsModalRef.hide()"
+    *ngIf="drone.serialNumber"></abp-modal-header>
+  <div class="modal-body">
+    <tabset>
+      <tab [heading]="'Medications' | localize" class="pt-3 px-2">
+        <div class="form-group row">
+          <div class="col-12">
+            <div class="alert alert-info" role="alert">
+              {{ "DroneLoadedWeight" | localize : droneLoadedWeight }}
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="medicationsSelected">
+            {{ "SelectToLoad" | localize }}
+          </label>
+          <div class="col-md-9">
+            <select class="form-control" name="medicationsSelected" id="medicationsSelected"
+              [(ngModel)]="medicationsSelected" #medicationsSelectedModel="ngModel" #medicationsSelectedEl multiple>
+              <option *ngFor="let medication of medications" [ngValue]="medication.id">
+                {{medication.name}}
+                ({{medication.weight}})
+              </option>
+            </select>
+            <abp-validation-summary [control]="medicationsSelectedModel"
+              [controlEl]="medicationsSelectedEl"></abp-validation-summary>
+          </div>
+        </div>
+      </tab>
+    </tabset>
+  </div>
+  <abp-modal-footer [cancelDisabled]="saving" [saveDisabled]="!loadDroneForm.form.valid || saving"
+    (onCancelClick)="bsModalRef.hide()"></abp-modal-footer>
+</form>

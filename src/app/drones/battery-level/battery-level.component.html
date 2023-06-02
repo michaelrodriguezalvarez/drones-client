@@ -1,0 +1,44 @@
+<abp-modal-header [title]="'BatteryLevel' | localize" (onCloseClick)="bsModalRef.hide()"></abp-modal-header>
+<div class="modal-body">
+  <tabset>
+    <tab [heading]="'BatteryLevelResult' | localize : batteryLevel" class="pt-3 px-2">
+      <h3>{{ "Drone" | localize }}</h3>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="serialNumber">
+          {{ "SerialNumber" | localize }}
+        </label>
+        <div class="col-md-9">
+          <input type="text" class="form-control" name="serialNumber" id="serialNumber" disabled="disabled"
+            [(ngModel)]="drone.serialNumber" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="model">
+          {{ "Model" | localize }}
+        </label>
+        <div class="col-md-9">
+          <input type="text" class="form-control" name="model" id="model" disabled="disabled"
+            [(ngModel)]="drone.model" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="weight">
+          {{ "Weight" | localize }}
+        </label>
+        <div class="col-md-9">
+          <input type="text" class="form-control" name="weight" id="weight" disabled="weight"
+            [(ngModel)]="drone.weight" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="state">
+          {{ "State" | localize }}
+        </label>
+        <div class="col-md-9">
+          <input type="text" class="form-control" name="state" id="state" disabled="disabled"
+            [(ngModel)]="drone.state" />
+        </div>
+      </div>
+    </tab>
+  </tabset>
+</div>

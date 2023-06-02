@@ -38,6 +38,17 @@ import { SidebarComponent } from './layout/sidebar.component';
 import { SidebarLogoComponent } from './layout/sidebar-logo.component';
 import { SidebarUserPanelComponent } from './layout/sidebar-user-panel.component';
 import { SidebarMenuComponent } from './layout/sidebar-menu.component';
+// drones
+import { MedicationsComponent } from './medications/medications.component';
+import { CreateMedicationComponent } from './medications/create-medication/create-medication.component';
+import { EditMedicationComponent } from './medications/edit-medication/edit-medication.component';
+import { DronesComponent } from './drones/drones.component';
+import { CreateDroneComponent } from './drones/create-drone/create-drone.component';
+import { EditDroneComponent } from './drones/edit-drone/edit-drone.component';
+import { LoadComponent } from './load/load.component';
+import { LoadDroneComponent } from './load/load-drone/load-drone.component';
+import { BatteryLevelComponent } from './drones/battery-level/battery-level.component';
+import { JobsComponent } from './jobs/jobs.component';
 
 @NgModule({
     declarations: [
@@ -67,7 +78,18 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
         SidebarComponent,
         SidebarLogoComponent,
         SidebarUserPanelComponent,
-        SidebarMenuComponent
+        SidebarMenuComponent,
+        // drones
+        MedicationsComponent,
+        CreateMedicationComponent,
+        EditMedicationComponent,
+        DronesComponent,
+        CreateDroneComponent,
+        EditDroneComponent,
+        LoadComponent,
+        LoadDroneComponent,
+        BatteryLevelComponent,
+        JobsComponent
     ],
     imports: [
         CommonModule,
@@ -86,4 +108,4 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
     ],
     providers: []
 })
-export class AppModule {}
+export class AppModule { }
