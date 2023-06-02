@@ -1,0 +1,28 @@
+<div [@routerTransition]>
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <h1>{{ "Jobs" | localize }}</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="content px-2">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-body">
+          <div class="form-group row">
+            <label class="col-2" for="activeJobs">
+              {{ "SelectActivateJobs" | localize }}
+            </label>
+            <div class="col-10">
+              <input type="checkbox" name="activeJobs" id="activeJobs" [(ngModel)]="activeJobs"
+                #activeJobsModel="ngModel" #activeJobsEl (change)="changeStatus()">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -11,6 +11,7 @@ import { ChangePasswordComponent } from './users/change-password/change-password
 import { MedicationsComponent } from './medications/medications.component';
 import { DronesComponent } from './drones/drones.component';
 import { LoadComponent } from './load/load.component';
+import { JobsComponent } from './jobs/jobs.component';
 
 @NgModule({
     imports: [
@@ -28,6 +29,7 @@ import { LoadComponent } from './load/load.component';
                     { path: 'medications', component: MedicationsComponent, data: { permission: 'Pages.Users' }, canActivate: [AppRouteGuard] },
                     { path: 'drones', component: DronesComponent, data: { permission: 'Pages.Users' }, canActivate: [AppRouteGuard] },
                     { path: 'load', component: LoadComponent, data: { permission: 'Pages.Users' }, canActivate: [AppRouteGuard] },
+                    { path: 'jobs', component: JobsComponent, data: { permission: 'Pages.Users' }, canActivate: [AppRouteGuard] },
                 ]
             }
         ])

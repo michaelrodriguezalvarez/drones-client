@@ -50,12 +50,12 @@ export class SidebarMenuComponent extends AppComponentBase implements OnInit {
                 "fas fa-user-shield",
                 "Pages.Roles"
             ),
-            new MenuItem(
+            /*new MenuItem(
                 this.l("Tenants"),
                 "/app/tenants",
                 "fas fa-building",
                 "Pages.Tenants"
-            ),
+            ),*/
             new MenuItem(
                 this.l("Users"),
                 "/app/users",
@@ -78,6 +78,12 @@ export class SidebarMenuComponent extends AppComponentBase implements OnInit {
                 this.l("Load"),
                 "/app/load",
                 "fas fa-plus-circle",
+                "Pages.Users"
+            ),
+            new MenuItem(
+                this.l("Jobs"),
+                "/app/jobs",
+                "fas fa-robot",
                 "Pages.Users"
             ),
         ];

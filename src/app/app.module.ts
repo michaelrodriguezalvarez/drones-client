@@ -48,6 +48,7 @@ import { EditDroneComponent } from './drones/edit-drone/edit-drone.component';
 import { LoadComponent } from './load/load.component';
 import { LoadDroneComponent } from './load/load-drone/load-drone.component';
 import { BatteryLevelComponent } from './drones/battery-level/battery-level.component';
+import { JobsComponent } from './jobs/jobs.component';
 
 @NgModule({
     declarations: [
@@ -87,7 +88,8 @@ import { BatteryLevelComponent } from './drones/battery-level/battery-level.comp
         EditDroneComponent,
         LoadComponent,
         LoadDroneComponent,
-        BatteryLevelComponent
+        BatteryLevelComponent,
+        JobsComponent
     ],
     imports: [
         CommonModule,
